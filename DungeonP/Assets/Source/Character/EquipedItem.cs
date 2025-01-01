@@ -5,4 +5,9 @@ using UnityEngine;
 public class EquipedItem : MonoBehaviour
 {
     private List<EquipedItemBase> equipedItems;
+
+    void Start()
+    {
+        
+    }
 }

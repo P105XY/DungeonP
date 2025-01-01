@@ -3,18 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.UI;
+using UnityEngine.UI;
 
-public class Inventory
+public class Inventory : MonoBehaviour
 {
     public byte InventoryXSize;
     public byte InventoryYSize;
     public List<List<ItemBase>> ItemInventory = new List<List<ItemBase>>();
 
-    public Inventory()
+    private GridLayoutGroup InventoryBackGroundPannel;
+    private GridLayoutGroup InventoryItemSlotPannel;
+
+    void Start()
     {
+        Transform BGPannel = transform.GetChild(0);
+        Transform SlotPannel = transform.GetChild(1);
+
+        if (BGPannel == null)
+        {
+            return;
+        }
+
+        if (SlotPannel == null)
+        {
+            return;
+        }
+
+        InventoryBackGroundPannel = BGPannel.GetComponent<GridLayoutGroup>();
+        InventoryItemSlotPannel = SlotPannel.GetComponent<GridLayoutGroup>();
+
+        if (InventoryBackGroundPannel == null)
+        {
+            return;
+        }
+        if (InventoryItemSlotPannel == null)
+        {
+            return;
+        }
+        //init Inventory Grid pannel.
+
         ItemInventory.Clear();
         InitItemInventory();
         //clear item inventory first when game start.
+
     }
 
     private void InitItemInventory()

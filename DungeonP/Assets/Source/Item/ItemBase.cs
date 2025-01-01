@@ -7,6 +7,7 @@ public enum EItemType
 {
     NONE,
     EQUIP,
+    BACKPACK,
     USABLE,
     COIN
 }
@@ -27,5 +28,10 @@ public class ItemBase
     public byte GetItemYSpace()
     {
         return ItemUsingSpace.GetItemYSpace();
+    }
+
+    public EItemType GetItemType()
+    {
+        return ECurrentItemType;
     }
 }
