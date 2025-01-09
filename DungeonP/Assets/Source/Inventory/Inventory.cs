@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -12,13 +13,29 @@ public class Inventory : MonoBehaviour
     public byte InventoryYSize;
     public List<List<ItemBase>> ItemInventory = new List<List<ItemBase>>();
 
+    public Button InventoryItemButton;
+    public Image InventoryBGImage;
+
+    private List<Button> InventoryButtonList = new List<Button>();
+    private List<Image> InventoryBGImageList = new List<Image>();
+
     private GridLayoutGroup InventoryBackGroundPannel;
     private GridLayoutGroup InventoryItemSlotPannel;
+    private GameObject InventoryCanvas;
 
     void Start()
     {
-        Transform BGPannel = transform.GetChild(0);
-        Transform SlotPannel = transform.GetChild(1);
+        InventoryCanvas = GameObject.FindWithTag(ObjectTagString.InventoryCanvasTagString);
+
+        if (InventoryCanvas == null)
+        {
+            return;
+        }
+
+        Debug.Log("Get canvas");
+
+        Transform BGPannel = InventoryCanvas.transform.GetChild(0);
+        Transform SlotPannel = InventoryCanvas.transform.GetChild(1);
 
         if (BGPannel == null)
         {
@@ -51,6 +68,7 @@ public class Inventory : MonoBehaviour
 
     private void InitItemInventory()
     {
+
         //init item invetory here.
     }
 

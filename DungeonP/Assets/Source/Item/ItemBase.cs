@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum EItemType
 {
@@ -12,7 +14,7 @@ public enum EItemType
     COIN
 }
 
-public class ItemBase
+public class ItemBase : MonoBehaviour
 {
     public Sprite ItemSprite;
     public EItemType ECurrentItemType;
