@@ -5,61 +5,20 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting.Antlr3.Runtime;
 
 
 public class Inventory : MonoBehaviour
 {
     public byte InventoryXSize;
     public byte InventoryYSize;
-    public List<List<ItemBase>> ItemInventory = new List<List<ItemBase>>();
+    public List<List<InventorySlot>> ItemInventory = new List<List<InventorySlot>>();
 
     public Button InventoryItemButton;
     public Image InventoryBGImage;
 
-    private List<Button> InventoryButtonList = new List<Button>();
-    private List<Image> InventoryBGImageList = new List<Image>();
-
-    private GridLayoutGroup InventoryBackGroundPannel;
-    private GridLayoutGroup InventoryItemSlotPannel;
-    private GameObject InventoryCanvas;
-
     void Start()
     {
-        InventoryCanvas = GameObject.FindWithTag(ObjectTagString.InventoryCanvasTagString);
-
-        if (InventoryCanvas == null)
-        {
-            return;
-        }
-
-        Debug.Log("Get canvas");
-
-        Transform BGPannel = InventoryCanvas.transform.GetChild(0);
-        Transform SlotPannel = InventoryCanvas.transform.GetChild(1);
-
-        if (BGPannel == null)
-        {
-            return;
-        }
-
-        if (SlotPannel == null)
-        {
-            return;
-        }
-
-        InventoryBackGroundPannel = BGPannel.GetComponent<GridLayoutGroup>();
-        InventoryItemSlotPannel = SlotPannel.GetComponent<GridLayoutGroup>();
-
-        if (InventoryBackGroundPannel == null)
-        {
-            return;
-        }
-        if (InventoryItemSlotPannel == null)
-        {
-            return;
-        }
-        //init Inventory Grid pannel.
-
         ItemInventory.Clear();
         InitItemInventory();
         //clear item inventory first when game start.
@@ -68,8 +27,28 @@ public class Inventory : MonoBehaviour
 
     private void InitItemInventory()
     {
-
         //init item invetory here.
+        GameObject[] FindedInventorySlot = GameObject.FindGameObjectsWithTag(ObjectTagString.InventorySlotTagString);
+
+        int ItemCountcolumn = 0;
+
+        for (int i = 0; i < InventoryXSize; i++)
+        {
+            ItemInventory.Add(new List<InventorySlot>());
+            for (int j = 0; j < InventoryYSize; j++)
+            {
+                InventorySlot CandidateInventorySlot;
+                ItemCountcolumn = j;
+                if (FindedInventorySlot[i + ItemCountcolumn].TryGetComponent<InventorySlot>(out CandidateInventorySlot))
+                {
+                    ItemInventory[i].Add(CandidateInventorySlot);
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
     }
 
     public bool PlaceItem(byte x, byte y, ItemBase InItem)
@@ -99,7 +78,7 @@ public class Inventory : MonoBehaviour
                     return false;
                 }
 
-                ItemInventory[i][j] = InItem;
+                ItemInventory[i][j].SetItem(true);
             }
         }
 

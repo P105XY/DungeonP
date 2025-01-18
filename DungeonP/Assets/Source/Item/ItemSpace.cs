@@ -1,24 +1,24 @@
-using System;
-using System.Security;
-
-public struct ItemSpace
+namespace ItemNameSpace
 {
-    private byte ItemXSpace;
-    private byte ItemYSpace;
-
-    public ItemSpace(byte InItemXSpace, byte InItemYSpace)
+    public struct ItemSpace
     {
-        this.ItemXSpace = InItemXSpace;
-        this.ItemYSpace = InItemYSpace;
-    }
+        private byte ItemXSpace;
+        private byte ItemYSpace;
 
-    public byte GetItemXSpace()
-    {
-        return this.ItemXSpace;
-    }
+        public ItemSpace(byte InItemXSpace, byte InItemYSpace)
+        {
+            this.ItemXSpace = InItemXSpace;
+            this.ItemYSpace = InItemYSpace;
+        }
 
-    public byte GetItemYSpace()
-    {
-        return this.ItemYSpace;
+        public byte GetItemXSpace()
+        {
+            return this.ItemXSpace;
+        }
+
+        public byte GetItemYSpace()
+        {
+            return this.ItemYSpace;
+        }
     }
 }

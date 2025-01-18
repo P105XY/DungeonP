@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool isItemAvaliable;
+
+    public void Start()
     {
-        
+        isItemAvaliable = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDrop(PointerEventData eventData)
     {
-        
+        Debug.Log("Drop Item Slot");
+        ItemBase draggableItem = eventData.pointerDrag.GetComponent<ItemBase>();
+        if(draggableItem == null)
+        {
+            return;
+        }
+
+        if(GetCurrentItem())
+        {
+            return;
+        }
+
+        SetItem(isItemAvaliable);
+
+    }
+
+    public void SetItem(bool inIsItemAvaliable)
+    {
+        this.isItemAvaliable = inIsItemAvaliable;
+    }
+
+    private bool GetCurrentItem()
+    {
+        return isItemAvaliable;
     }
 }

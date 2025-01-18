@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - InventoryCanvas
+  - InventorySlot
+  - InventoryItemPannel
+  - InventoryBackgroundPannel
   layers:
   - Default
   - TransparentFX
