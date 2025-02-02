@@ -1,0 +1,55 @@
+{
+    "items": [
+        {
+            "index": "U_0001",
+            "name": "RottenMeat",
+            "itemspace": [
+                {
+                    "X": "2",
+                    "Y": "1"
+                }
+            ],
+            "status": [
+                {
+                    "weight": "3",
+                    "health": "-3",
+                    "sanity": "-3"
+                }
+            ]
+        },
+        {
+            "index": "U_0002",
+            "name": "RottenBread",
+            "itemspace": [
+                {
+                    "X": "1",
+                    "Y": "1"
+                }
+            ],
+            "status": [
+                {
+                    "weight": "3",
+                    "health": "-1",
+                    "sanity": "-1"
+                }
+            ]
+        },
+        {
+            "index": "U_0003",
+            "name": "RottenWater",
+            "itemspace": [
+                {
+                    "X": "1",
+                    "Y": "2"
+                }
+            ],
+            "status": [
+                {
+                    "weight": "3",
+                    "health": "-1",
+                    "sanity": "-6"
+                }
+            ]
+        }
+    ]
+}

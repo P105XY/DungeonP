@@ -8,6 +8,11 @@ TagManager:
   - InventorySlot
   - InventoryItemPannel
   - InventoryBackgroundPannel
+  - EquipmentPannel
+  - EquipmentCanvas
+  - EquipmentSlot
+  - InventoryItem
+  - EquiptmentItemPannel
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Item
   - 
   - 
   - 

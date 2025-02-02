@@ -1,0 +1,43 @@
+{
+    "items": [
+        {
+            "index": "E_0001",
+            "name": "SimpleKnife",
+            "type" : 3,
+            "itemspace": {
+                "X": 2,
+                "Y": 1
+            },
+            "status": {
+                "weight": 1,
+                "attack": 2
+            }
+        },
+        {
+            "index": "E_0002",
+            "name": "OldKnife",
+            "type" : 3,
+            "itemspace": {
+                "X": 1,
+                "Y": 1
+            },
+            "status": {
+                "weight": 1,
+                "attack": 1
+            }
+        },
+        {
+            "index": "E_0003",
+            "name": "LongKnife",
+            "type" : 3,
+            "itemspace": {
+                "X": 3,
+                "Y": 1
+            },
+            "status": {
+                "weight": 3,
+                "attack": 5
+            }
+        }
+    ]
+}

@@ -3,7 +3,9 @@ guid: 016a95c10b89e42bf8c2bb06af3a2bc5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - InventoryCanvas: {fileID: 2296687762813592590, guid: 1bc9256aa54c8474f96affdea875a121, type: 3}
+  - EquipmentCanvas: {fileID: 5492964204556517876, guid: 38f23eded715b4dfa9a6fddd8147337d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

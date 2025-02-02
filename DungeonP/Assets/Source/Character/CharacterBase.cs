@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct FCharacterStatus
@@ -10,18 +8,61 @@ public struct FCharacterStatus
     public float BodyArmor; //substract to damage to body
     public float ArmArmor; //substract to damage to arm
     public float LegArmor; //substract to damage to leg
-    public byte CoinFlipAdvantage; //increase to coin flip success probablilty
-    public byte CoinFlipCount; //increase to coin flip Repeat count
-    public byte Luck; //increase to gain upper grade item 
+    public float CoinFlipAdvantage; //increase to coin flip success probablilty
+    public float CoinFlipCount; //increase to coin flip Repeat count
+    public float Luck; //increase to gain upper grade item 
+    public float MoveSpeed; //movement speed
 }
 
 public class CharacterBase : MonoBehaviour
 {
-    private FCharacterStatus characteStatus;
-    private Inventory CharacterInventory;
+    private FCharacterStatus characterStatus;
     private EquipedItem CharacterEquiped;
+    private CharacterBackpack CharacterBackpack;
 
+    public Canvas InventoryCanvas;
+    public Canvas EquipmentCanvas;
+
+    public virtual void Awake()
+    {
+        CharacterEquiped = GetComponent<EquipedItem>();
+    }
+
+    public virtual void Start()
+    {
+        if(InventoryCanvas is null)
+        {
+            return;
+        }
+
+        if(EquipmentCanvas is null)
+        {
+            return;
+        }
+    }
+
+    public virtual void Update()
+    {
+        MovementAction();
+    }
     
+    public virtual void FixedUpdate() 
+    {
+        
+    }
 
+    private void MovementAction()
+    {
 
+    }
+
+    public FCharacterStatus GetCharacterStat()
+    {
+        return characterStatus;
+    }
+
+    public EquipedItem GetCharacterEquipedItem()
+    {
+        return CharacterEquiped;
+    }
 }
