@@ -53,7 +53,7 @@ public class ItemBase : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         return ECurrentItemType;
     }
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         if (!TryGetComponent<RectTransform>(out rectTransform))
         {

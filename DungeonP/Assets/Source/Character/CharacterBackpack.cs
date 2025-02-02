@@ -25,9 +25,6 @@ public class CharacterBackpack : MonoBehaviour
         }
 
         BackpackItems.Add(GetItem);
-
-        InventoryComponent.InsertItemInventory(GetItem);
-
     }
 
     public void RemoveItem(ItemBase RemoveItem)

@@ -5,9 +5,9 @@ using UnityEngine;
 public class CoinItem0003 : CoinItemBase
 {
     private string ItemIndex = "C_0003";
-    public override void Start()
+   public override void Awake()
     {
         InitItemDataFromDB(ref ItemIndex);
-        base.Start();
+        base.Awake();
     }
 }

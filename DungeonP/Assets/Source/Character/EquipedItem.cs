@@ -25,9 +25,6 @@ public class EquipedItem : MonoBehaviour
 
         switch (EEquipmentType)
         {
-            case EEquipmentType.NONE:
-                break;
-
             case EEquipmentType.HEAD:
                 headEquipItem = EquipItem;
                 break;

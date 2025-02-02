@@ -21,6 +21,11 @@ class CoinSlot : MonoBehaviour, ISlotSystem
         slotType = ESlotType.COIN;
     }
 
+    void OnDestroy()
+    {
+        SetCoinEquipDele = null;
+    }
+
     public bool EquiptItem(ItemBase InItem) 
     {
         if(InItem is null)

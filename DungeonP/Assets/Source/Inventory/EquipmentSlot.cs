@@ -19,6 +19,10 @@ public class EquipmentSlot : MonoBehaviour, ISlotSystem
 
         SetEquipDele = characterEquipItem.SetEquipedItem;
     }
+    void OnDestroy()
+    {
+        SetEquipDele = null;
+    }
 
     public virtual bool EquiptItem(ItemBase InItem)
     {

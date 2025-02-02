@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
     public int InventoryXSize;
     public int InventoryYSize;
     public List<List<InventorySlot>> InventorySlotList = new List<List<InventorySlot>>();
-    public List<ItemBase> InventoryItemList = new List<ItemBase>();
     public Button InventoryItemButton;
     public Image InventoryBGImage;
 
@@ -16,6 +15,8 @@ public class Inventory : MonoBehaviour
     private Color SlotNotAvaliableColor;
     private Color SlotPlacementableColor;
     private Color SlotUnplacementableColor;
+
+    public ItemBase instnatiatingitem;
 
     void Start()
     {
@@ -26,6 +27,16 @@ public class Inventory : MonoBehaviour
         UnityEngine.ColorUtility.TryParseHtmlString("#00000059", out SlotNotAvaliableColor);
         UnityEngine.ColorUtility.TryParseHtmlString("#7CE59559", out SlotPlacementableColor);
         UnityEngine.ColorUtility.TryParseHtmlString("#C5394D59", out SlotUnplacementableColor);
+    }
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            GameObject dummyitem = GameObject.Instantiate(instnatiatingitem).gameObject;
+            dummyitem.transform.SetParent(transform.GetChild(1));
+
+            InsertItemInventory(dummyitem.GetComponent<ItemBase>(), dummyitem);
+        }
     }
 
     private void InitItemInventory()
@@ -130,7 +141,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public bool InsertItemInventory(in ItemBase InItem)
+    public bool InsertItemInventory(in ItemBase InItem, GameObject PickItem)
     {
         //insert item to nearest first item slot.
         if (InItem == null)
@@ -140,6 +151,9 @@ public class Inventory : MonoBehaviour
 
         int InsertSlotX = -1;
         int InsertSlotY = -1;
+
+        List<int> x = new List<int>();
+        List<int> y = new List<int>();
 
         for (int slotY = 0; slotY < InventoryYSize; slotY++)
         {
@@ -155,12 +169,44 @@ public class Inventory : MonoBehaviour
                     continue;
                 }
 
+                for (int j = slotY; j < slotY + InItem.GetItemYSpace(); j++)
+                {
+                    for (int i = slotX; i < slotX + InItem.GetItemXSpace(); i++)
+                    {
+                        if(!InventorySlotList[j][i].IsSlotAvaliable())
+                        {
+                            break;
+                        }
+                    }
+                }
+
                 InsertSlotX = slotX;
+                InsertSlotY = slotY;
+                break;
             }
-            InsertSlotY = slotY;
+
+            if(InsertSlotX != -1 && InsertSlotY != -1)
+            {
+                break;
+            }
         }
 
-        PlaceItem(InsertSlotX, InsertSlotY, InItem);
+        if (!PlaceItem(InsertSlotX, InsertSlotY, InItem))
+        {
+            return false;
+        }
+
+        RectTransform PickItemRect = PickItem.GetComponent<RectTransform>();
+        RectTransform PlacementSlotRect = InventorySlotList[InsertSlotY][InsertSlotX].GetComponent<RectTransform>();
+
+        if(PickItemRect is null || PlacementSlotRect is null)
+        {
+            return false;
+        }
+
+        Vector2 placementAnchor = PlacementSlotRect.anchoredPosition;
+        PickItemRect.anchoredPosition = placementAnchor;
+
         return true;
     }
 
