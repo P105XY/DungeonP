@@ -8,9 +8,14 @@ public class PickableItem : MonoBehaviour
     public string ItemIndex;
     public EItemType ItemType;
 
-    void Start()
+    public void Start()
     {
 
+    }
+
+    public void InitItemData()
+    {
+        
     }
 
     public void Interation()

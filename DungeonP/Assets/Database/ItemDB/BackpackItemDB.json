@@ -3,32 +3,26 @@
         {
             "index": "BP_0001",
             "name": "SimpleBackpack",
-            "bagspace": [
-                {
-                    "X": "13",
-                    "Y": "13"
-                }
-            ]
+            "bagspace": {
+                "X": 13,
+                "Y": 13
+            }
         },
         {
             "index": "BP_0002",
             "name": "OldBackpack",
-            "bagspace": [
-                {
-                    "X": "10",
-                    "Y": "10"
-                }
-            ]
+            "bagspace": {
+                "X": 10,
+                "Y": 10
+            }
         },
         {
             "index": "BP_0003",
             "name": "FindBackpack",
-            "bagspace": [
-                {
-                    "X": "15",
-                    "Y": "15"
-                }
-            ]
+            "bagspace": {
+                "X": 15,
+                "Y": 15
+            }
         }
     ]
 }

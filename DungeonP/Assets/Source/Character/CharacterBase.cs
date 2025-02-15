@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public struct FCharacterStatus
@@ -19,6 +20,7 @@ public class CharacterBase : MonoBehaviour
     private FCharacterStatus characterStatus;
     private EquipedItem CharacterEquiped;
     private CharacterBackpack CharacterBackpack;
+    private GameObject characterObject;
 
     public Canvas InventoryCanvas;
     public Canvas EquipmentCanvas;
@@ -26,6 +28,8 @@ public class CharacterBase : MonoBehaviour
     public virtual void Awake()
     {
         CharacterEquiped = GetComponent<EquipedItem>();
+
+        characterObject = this.gameObject;
     }
 
     public virtual void Start()
@@ -39,11 +43,11 @@ public class CharacterBase : MonoBehaviour
         {
             return;
         }
+
     }
 
     public virtual void Update()
     {
-        MovementAction();
     }
     
     public virtual void FixedUpdate() 
@@ -51,7 +55,8 @@ public class CharacterBase : MonoBehaviour
         
     }
 
-    private void MovementAction()
+    [EasyCallFunctionNamespace.EasyCallingFunction("int", nameof(AdjustHealth))]
+    public void AdjustHealth(float healthAmount)
     {
 
     }

@@ -1,0 +1,44 @@
+{
+    "lowriskenemys": [
+        {
+            "index": "LE_001",
+            "name": "Clustering",
+            "status": {
+                "health": 5,
+                "attack": 1,
+                "defence": 0
+            },
+            "droptable": [
+                "U_0001",
+                "U_0002"
+            ]
+        },
+        {
+            "index": "LE_002",
+            "name": "Cluster Worker",
+            "status": {
+                "health": 12,
+                "attack": 1,
+                "defence": 1
+            },
+            "droptable": [
+                "U_0001",
+                "U_0003"
+            ]
+        },
+        {
+            "index": "LE_003",
+            "name": "CLuster Guard",
+            "status": {
+                "health": 18,
+                "attack": 1,
+                "defence": 3
+            },
+            "droptable": [
+                "U_0001",
+                "U_0002",
+                "U_0003"
+            ]
+        }
+    ]
+}

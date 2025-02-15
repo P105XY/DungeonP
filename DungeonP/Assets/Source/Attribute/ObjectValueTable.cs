@@ -33,6 +33,8 @@ public static class ObjectValueTable
     public static readonly string UsableItemDBLocation = Path.Combine(Application.dataPath, "Database", "ItemDB", "UsableItemDB.json");
     public static readonly string BackpackItemDBLocation = Path.Combine(Application.dataPath, "Database", "ItemDB", "BackpackItemDB.json");
 
+    public static readonly string LowriskEnemyDBLocation = Path.Combine(Application.dataPath, "Database","EnemyDB","LowRiskEnemyDB.json");
+
     public static readonly Dictionary<ESlotType, EEquipmentType> SlotToEquipmentMap = new()
 {
     { ESlotType.NONE, EEquipmentType.NONE },

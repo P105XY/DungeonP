@@ -33,7 +33,6 @@ public class CharacterInputController : MonoBehaviour
 
     private void Start()
     {
-
         if (!TryGetComponent<Rigidbody2D>(out rigid2D))
         {
             return;

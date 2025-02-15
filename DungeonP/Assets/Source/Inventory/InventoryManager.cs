@@ -10,9 +10,4 @@ public class InventoryManager : MonoBehaviour
         EquipmentSlotList = GameObject.FindGameObjectsWithTag(ObjectTagString.EquipmentSlot);
         Inventory = GameObject.FindGameObjectWithTag(ObjectTagString.InventoryCanvasTagString);
     }
-
-    void Update()
-    {
-        
-    }
 }
