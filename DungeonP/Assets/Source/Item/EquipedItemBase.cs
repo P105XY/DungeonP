@@ -19,7 +19,7 @@ public class EquipedItemBase : ItemBase
         return equipmentType;
     }
 
-    protected void InitItemDataFromDB(ref string ItemIndex)
+    public void InitItemDataFromDB(ref string ItemIndex)
     {
         string jsonpath = ObjectValueTable.EquipmentItemDBLocation;
         if(!File.Exists(jsonpath))

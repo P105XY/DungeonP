@@ -12,7 +12,7 @@ public class CoinItemBase : ItemBase
         ECurrentItemType = EItemType.COIN;
     }
 
-    protected void InitItemDataFromDB(ref string ItemIndex)
+    public void InitItemDataFromDB(ref string ItemIndex)
     {
         string jsonpath = ObjectValueTable.CoinItemDBLocation;
         if (!File.Exists(jsonpath))

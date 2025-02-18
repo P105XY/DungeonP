@@ -1,4 +1,12 @@
-public class UsableItemBase : ItemBase
+using System.IO;
+using UnityEngine;
+
+struct FItemStatus
 {
 
+}
+
+public class UsableItemBase : ItemBase
+{
+    
 }

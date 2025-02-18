@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EEnemyRiskType
 {
-    None, 
+    None,
     Low,
     Normal,
     High
@@ -43,13 +43,13 @@ public class EnemyBase : MonoBehaviour
                 break;
         }
 
-        if(dbpath.Length<=0)
+        if (dbpath.Length <= 0)
         {
             return;
         }
 
         string jsonpath = ObjectValueTable.EquipmentItemDBLocation;
-        if(!File.Exists(dbpath))
+        if (!File.Exists(dbpath))
         {
             Debug.Log("json file not found");
             return;
@@ -60,9 +60,9 @@ public class EnemyBase : MonoBehaviour
         LowriskEnemyDB enemyDB = JsonUtility.FromJson<LowriskEnemyDB>(FileData);
 
         FEnemyData ed;
-        foreach(LowriskEnemy enemy in enemyDB.lowriskenemys)
+        foreach (LowriskEnemy enemy in enemyDB.lowriskenemys)
         {
-            if(!enemy.index.Equals(enemyIndex))
+            if (!enemy.index.Equals(enemyIndex))
             {
                 continue;
             }
@@ -73,6 +73,14 @@ public class EnemyBase : MonoBehaviour
             ed.defence = enemy.status.defence;
             droptable = enemy.droptable.enemydrops;
             enemyData = ed;
+        }
+    }
+
+    private void Dead()
+    {
+        foreach (string itemIndex in droptable)
+        {
+            
         }
     }
 }

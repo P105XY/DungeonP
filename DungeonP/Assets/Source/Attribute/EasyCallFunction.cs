@@ -55,6 +55,8 @@ namespace EasyCallFunctionNamespace
         }
     }
 
+    
+
     class EasyExcuteFunction
     {
         public void ExcuteEasyCallingFunctionInt(UnityEngine.Object obj, int param)
