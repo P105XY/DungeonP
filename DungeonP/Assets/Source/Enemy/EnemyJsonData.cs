@@ -8,6 +8,7 @@ public class EnemyStatus
     public int health;
     public int attack;
     public int defence;
+    public int activepoint;
 }
 
 [Serializable]

@@ -10,24 +10,25 @@ public enum EEnemyRiskType
     High
 }
 
-public struct FEnemyData
+public struct FEnemyStatus
 {
     public string name;
     public int health;
     public int attack;
     public int defence;
+    public int activepoint;
 }
 
 public class EnemyBase : MonoBehaviour
 {
     public EEnemyRiskType riskType { get; private set; }
-    public FEnemyData enemyData { get; private set; }
+    public FEnemyStatus enemyStatus { get; private set; }
     public string enemyIndex { get; private set; }
     public string[] droptable { get; private set; }
 
     public void Start()
     {
-        enemyData = new FEnemyData();
+        enemyStatus = new FEnemyStatus();
 
         string dbpath = null;
 
@@ -59,7 +60,7 @@ public class EnemyBase : MonoBehaviour
 
         LowriskEnemyDB enemyDB = JsonUtility.FromJson<LowriskEnemyDB>(FileData);
 
-        FEnemyData ed;
+        FEnemyStatus ed;
         foreach (LowriskEnemy enemy in enemyDB.lowriskenemys)
         {
             if (!enemy.index.Equals(enemyIndex))
@@ -71,9 +72,15 @@ public class EnemyBase : MonoBehaviour
             ed.health = enemy.status.health;
             ed.attack = enemy.status.attack;
             ed.defence = enemy.status.defence;
+            ed.activepoint = enemy.status.activepoint;
             droptable = enemy.droptable.enemydrops;
-            enemyData = ed;
+            enemyStatus = ed;
         }
+    }
+
+    public FEnemyStatus GetEnemyStatus()
+    {
+        return enemyStatus;
     }
 
     private void Dead()

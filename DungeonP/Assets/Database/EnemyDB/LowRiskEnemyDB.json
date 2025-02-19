@@ -6,7 +6,8 @@
             "status": {
                 "health": 5,
                 "attack": 1,
-                "defence": 0
+                "defence": 0,
+                "activepoint" : 1
             },
             "droptable": [
                 "U_0001",
@@ -19,7 +20,8 @@
             "status": {
                 "health": 12,
                 "attack": 1,
-                "defence": 1
+                "defence": 1,
+                "activepoint" : 2
             },
             "droptable": [
                 "U_0001",
@@ -32,7 +34,8 @@
             "status": {
                 "health": 18,
                 "attack": 1,
-                "defence": 3
+                "defence": 3,
+                "activepoint" : 3
             },
             "droptable": [
                 "U_0001",

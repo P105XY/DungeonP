@@ -10,4 +10,6 @@ public static class ObjectTagString
     public static readonly string EquipmentPannel = "EquipmentPannel";
     public static readonly string InventoryItem = "InventoryItem";
     public static readonly string EquiptmentItemPannel = "EquipmentItemPannel";
+    public static readonly string EnemyTag = "Enemy";
+    
 }

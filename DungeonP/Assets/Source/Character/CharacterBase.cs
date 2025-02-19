@@ -13,6 +13,7 @@ public struct FCharacterStatus
     public float CoinFlipCount; //increase to coin flip Repeat count
     public float Luck; //increase to gain upper grade item 
     public float MoveSpeed; //movement speed
+    public int activePoint;
 }
 
 public class CharacterBase : MonoBehaviour
