@@ -99,6 +99,60 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""InventorySwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""c401bbd4-3836-420b-92df-3068cc6b608c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""92c8a85b-4c4d-482d-8483-d33ef01d7b90"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab4d6c6d-5f85-4a6c-839e-1820956368d1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""391be321-a261-4bb2-8c91-5d75aeedb725"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Enter"",
+                    ""type"": ""Button"",
+                    ""id"": ""59c1b534-34c4-4d9f-a9a4-6857f6c60ff6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GamePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a074278-1814-485e-9b19-f542663fc4de"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,6 +210,83 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89417e5f-8883-4230-8641-ce0e25e007af"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9ed449a-d769-4fd8-9ba1-ead08ae33651"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1850ad92-705d-4459-bd8a-124cea42ba0a"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47e610b3-ec92-473f-9700-85a27e650a5d"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9dfeeb5-07eb-4cd3-a1d1-8531d21fcc5b"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4122782-6b36-456d-afd2-fc13e4ad023b"",
+                    ""path"": ""<Keyboard>/numpadEnter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f32f83a-ecbc-4a1f-8f11-a66bf8c17bde"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,6 +296,12 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Movement = m_Movement.FindAction("Movement", throwIfNotFound: true);
+        m_Movement_InventorySwitch = m_Movement.FindAction("InventorySwitch", throwIfNotFound: true);
+        m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
+        m_Movement_Cancel = m_Movement.FindAction("Cancel", throwIfNotFound: true);
+        m_Movement_Run = m_Movement.FindAction("Run", throwIfNotFound: true);
+        m_Movement_Enter = m_Movement.FindAction("Enter", throwIfNotFound: true);
+        m_Movement_GamePause = m_Movement.FindAction("GamePause", throwIfNotFound: true);
     }
 
     ~@MovementAction()
@@ -246,6 +383,12 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Movement;
+    private readonly InputAction m_Movement_InventorySwitch;
+    private readonly InputAction m_Movement_Interact;
+    private readonly InputAction m_Movement_Cancel;
+    private readonly InputAction m_Movement_Run;
+    private readonly InputAction m_Movement_Enter;
+    private readonly InputAction m_Movement_GamePause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -261,6 +404,30 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Movement".
         /// </summary>
         public InputAction @Movement => m_Wrapper.m_Movement_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/InventorySwitch".
+        /// </summary>
+        public InputAction @InventorySwitch => m_Wrapper.m_Movement_InventorySwitch;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Movement_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Cancel".
+        /// </summary>
+        public InputAction @Cancel => m_Wrapper.m_Movement_Cancel;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Run".
+        /// </summary>
+        public InputAction @Run => m_Wrapper.m_Movement_Run;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Enter".
+        /// </summary>
+        public InputAction @Enter => m_Wrapper.m_Movement_Enter;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/GamePause".
+        /// </summary>
+        public InputAction @GamePause => m_Wrapper.m_Movement_GamePause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -290,6 +457,24 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @InventorySwitch.started += instance.OnInventorySwitch;
+            @InventorySwitch.performed += instance.OnInventorySwitch;
+            @InventorySwitch.canceled += instance.OnInventorySwitch;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
+            @Enter.started += instance.OnEnter;
+            @Enter.performed += instance.OnEnter;
+            @Enter.canceled += instance.OnEnter;
+            @GamePause.started += instance.OnGamePause;
+            @GamePause.performed += instance.OnGamePause;
+            @GamePause.canceled += instance.OnGamePause;
         }
 
         /// <summary>
@@ -304,6 +489,24 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @InventorySwitch.started -= instance.OnInventorySwitch;
+            @InventorySwitch.performed -= instance.OnInventorySwitch;
+            @InventorySwitch.canceled -= instance.OnInventorySwitch;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
+            @Enter.started -= instance.OnEnter;
+            @Enter.performed -= instance.OnEnter;
+            @Enter.canceled -= instance.OnEnter;
+            @GamePause.started -= instance.OnGamePause;
+            @GamePause.performed -= instance.OnGamePause;
+            @GamePause.canceled -= instance.OnGamePause;
         }
 
         /// <summary>
@@ -351,5 +554,47 @@ public partial class @MovementAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InventorySwitch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventorySwitch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Run" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRun(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Enter" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEnter(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GamePause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGamePause(InputAction.CallbackContext context);
     }
 }
