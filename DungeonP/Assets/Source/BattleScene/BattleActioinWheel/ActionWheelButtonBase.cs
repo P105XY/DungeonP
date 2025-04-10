@@ -1,8 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+
+interface IWheelButtonHandler
+{
+    void OnWheelButtonClicked(InputAction.CallbackContext context);
+    void OnWheelButtonHovered(InputAction.CallbackContext context);
+    void OnCancelButtonClicked(InputAction.CallbackContext context);
+}
 
 //action wheel에서 사용할 버튼 위젯의 기본 기능 구현.
 public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -14,18 +23,23 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
     private Vector2 initVector;
     private Coroutine floatingCoroutine;
 
+    protected InputAction EnterActionInput;
+    protected InputAction ArrowKeyInput;
+    protected InputAction ExitActionInput;
+    protected InputAction InteractionInput;
+    protected MovementAction movementActionClass;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         initVector = rectTransform.anchoredPosition;
+        bIsCursurHover = false;
 
         ActionButton = GetComponent<Button>();
         if (ActionButton == null)
         {
             return;
         }
-
-        ActionButton.onClick.AddListener(this.OnClick);
     }
 
     private void Update()
@@ -34,7 +48,7 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
         {
             floatingCoroutine = StartCoroutine(IconFloating());
         }
-        else
+        else if (!bIsCursurHover && floatingCoroutine != null)
         {
             StopCoroutine(floatingCoroutine);
             floatingCoroutine = null;
@@ -42,14 +56,35 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
         }
     }
 
-    void OnDisable()
+    private void OnEnable()
     {
-        ActionButton.onClick.RemoveAllListeners();
+        movementActionClass = new MovementAction();
+        EnterActionInput = movementActionClass.Movement.Enter;
+        ArrowKeyInput = movementActionClass.Movement.Movement;
+        ExitActionInput = movementActionClass.Movement.Cancel;
+        InteractionInput = movementActionClass.Movement.Interact;
+
+        movementActionClass.Enable();
+        EnterActionInput.Enable();
+        ArrowKeyInput.Enable();
+        ExitActionInput.Enable();
+        InteractionInput.Enable();
     }
 
-    private void OnClick()
+    private void OnDisable()
     {
+        movementActionClass.Disable();
+        EnterActionInput.Disable();
+        ArrowKeyInput.Disable();
+        ExitActionInput.Disable();
+        InteractionInput.Disable();
 
+        if (ActionButton == null)
+        {
+            return;
+        }
+
+        ActionButton.onClick.RemoveAllListeners();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -76,11 +111,11 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
     {
         while (true)
         {
-            yield return null;
-            Vector2 currentRect = rectTransform.anchoredPosition;
+            yield return new WaitForFixedUpdate();
             float amplitude = 10f; // 기본 진폭
-            float sineValue = amplitude * Mathf.Sin(Time.time);
-            rectTransform.anchoredPosition = new Vector2(currentRect.x, currentRect.y + sineValue);
+            float frequency = 2.0f * Mathf.PI / 5.0f;
+            float sineValue = amplitude * Mathf.Sin(Time.time * frequency); //time * 진동 주기.
+            rectTransform.anchoredPosition = new Vector2(initVector.x, initVector.y + sineValue);
         }
     }
 }

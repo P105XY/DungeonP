@@ -81,7 +81,7 @@ public class BattleController : MonoBehaviour
         }
 
         var sortedOrder = unsortedActionOrder.OrderByDescending(pair => pair.Value);
-        ActionOrder = (Dictionary<GameObject, int>)sortedOrder;
+        ActionOrder = sortedOrder.ToDictionary(pair => pair.Key, pair => pair.Value);
 
         maxturnIndex = ActionOrder.Count - 1;
         turnIndex = 0;
@@ -91,7 +91,13 @@ public class BattleController : MonoBehaviour
 
     public void TurnAction()
     {
+        if(maxturnIndex <= 0)
+        {
+            return;
+        }
+
         turnIndex = turnIndex + 1;
+
         if (turnIndex >= maxturnIndex)
         {
             SetActionOrder();

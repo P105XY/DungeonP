@@ -11,7 +11,6 @@ public class CharacterInputController : MonoBehaviour
     private InputAction characterRunningAction;
     private InputAction characterCancelAction;
     private InputAction characterPauseAction;
-    private CharacterAction characterInputActionClass;
     private Rigidbody2D rigid2D;
     private UnityEngine.Vector2 MovementVector;
     private CharacterBase characterBase;
@@ -23,13 +22,11 @@ public class CharacterInputController : MonoBehaviour
     {
         movementActionClass = new MovementAction();
         movementInputAction = movementActionClass.Movement.Movement;
-
-        characterInputActionClass = new CharacterAction();
-        characterInteractAction = characterInputActionClass.Interaction.Interact;
-        characterRunningAction = characterInputActionClass.Interaction.Run;
-        characterCancelAction = characterInputActionClass.Interaction.Cancel;
-        characterPauseAction = characterInputActionClass.Interaction.GamePause;
-        characterInventoryAction = characterInputActionClass.Inventory.InventorySwitch;
+        characterInteractAction = movementActionClass.Movement.Interact;
+        characterRunningAction = movementActionClass.Movement.Run;
+        characterCancelAction = movementActionClass.Movement.Cancel;
+        characterPauseAction = movementActionClass.Movement.GamePause;
+        characterInventoryAction = movementActionClass.Movement.InventorySwitch;
     }
 
     private void Start()
