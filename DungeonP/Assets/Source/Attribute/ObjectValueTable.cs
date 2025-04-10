@@ -21,6 +21,7 @@ public enum EEquipmentType
     TALISMAN
 }
 
+//고정된 값을 사용할 때 쉽게 사용할 수 있도록 전역적인 변수 모음.
 public static class ObjectValueTable
 {
     public static readonly float InventorySlotSize = 29f;

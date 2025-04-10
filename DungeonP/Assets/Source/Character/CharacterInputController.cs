@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//캐릭터의 inputaction을 통해서 입력을 받고, 해당 액션을 취하는 클래스.
 public class CharacterInputController : MonoBehaviour
 {
     private InputAction movementInputAction;

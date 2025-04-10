@@ -1,3 +1,5 @@
+
+//태그나 이름을 찾을 때 한곳에서 관리하기 위한 클래스.
 public static class ObjectTagString
 {
     public static readonly string InventoryCanvasTagString = "InventoryCanvas";

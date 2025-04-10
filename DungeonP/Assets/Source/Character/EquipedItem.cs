@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//현재 캐릭터가 착용하고 있는 아이템을 정리한 클래스.
+//가방이 아닌 착용중인 아이템을 관리한다.
 public class EquipedItem : MonoBehaviour
 {
     private EquipedItemBase headEquipItem;
