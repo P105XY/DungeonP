@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InstancingCharacter : CharacterBase
 {
-     public override void Awake()
+    public override void Awake()
     {
         base.Awake();
     }
@@ -11,6 +11,5 @@ public class InstancingCharacter : CharacterBase
     {
         base.Start();
     }
-
 
 }

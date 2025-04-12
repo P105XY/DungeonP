@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 interface IWheelButtonHandler
 {
@@ -16,18 +17,13 @@ interface IWheelButtonHandler
 //action wheel에서 사용할 버튼 위젯의 기본 기능 구현.
 public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Button ActionButton;
     private BattleController battleController;
     private RectTransform rectTransform;
     private bool bIsCursurHover;
     private Vector2 initVector;
     private Coroutine floatingCoroutine;
-
-    protected InputAction EnterActionInput;
-    protected InputAction ArrowKeyInput;
-    protected InputAction ExitActionInput;
-    protected InputAction InteractionInput;
-    protected MovementAction movementActionClass;
+    protected UnityEngine.UI.Button ActionButton;
+    protected Navigation navigationMoveEvent;
 
     private void Start()
     {
@@ -35,7 +31,7 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
         initVector = rectTransform.anchoredPosition;
         bIsCursurHover = false;
 
-        ActionButton = GetComponent<Button>();
+        ActionButton = GetComponent<UnityEngine.UI.Button>();
         if (ActionButton == null)
         {
             return;
@@ -44,41 +40,36 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
 
     private void Update()
     {
-        if (bIsCursurHover && floatingCoroutine == null)
+        if (this.gameObject == EventSystem.current.currentSelectedGameObject)
+        {
+            bIsCursurHover = true;
+        }
+        else
+        {
+            bIsCursurHover = false;
+        }
+
+        if (bIsCursurHover)
         {
             floatingCoroutine = StartCoroutine(IconFloating());
         }
-        else if (!bIsCursurHover && floatingCoroutine != null)
+        else
         {
-            StopCoroutine(floatingCoroutine);
+            if (floatingCoroutine != null)
+            {
+                StopCoroutine(floatingCoroutine);
+            }
             floatingCoroutine = null;
             rectTransform.anchoredPosition = initVector;
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        movementActionClass = new MovementAction();
-        EnterActionInput = movementActionClass.Movement.Enter;
-        ArrowKeyInput = movementActionClass.Movement.Movement;
-        ExitActionInput = movementActionClass.Movement.Cancel;
-        InteractionInput = movementActionClass.Movement.Interact;
-
-        movementActionClass.Enable();
-        EnterActionInput.Enable();
-        ArrowKeyInput.Enable();
-        ExitActionInput.Enable();
-        InteractionInput.Enable();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        movementActionClass.Disable();
-        EnterActionInput.Disable();
-        ArrowKeyInput.Disable();
-        ExitActionInput.Disable();
-        InteractionInput.Disable();
-
         if (ActionButton == null)
         {
             return;
@@ -94,7 +85,7 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
             throw new System.NotImplementedException();
         }
 
-        bIsCursurHover = true;
+        SetIsHover(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -104,11 +95,21 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
             throw new System.NotImplementedException();
         }
 
-        bIsCursurHover = false;
+        SetIsHover(false);
+    }
+
+    public void SetIsHover(bool bInIssHover)
+    {
+        bIsCursurHover = bInIssHover;
     }
 
     private IEnumerator IconFloating()
     {
+        if (floatingCoroutine != null)
+        {
+            yield return null;
+        }
+
         while (true)
         {
             yield return new WaitForFixedUpdate();
