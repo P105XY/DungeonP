@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class AttackWheelButton : ActionWheelButtonBase
 {
-    private void Start()
-    {
-        ActionButton.onClick.AddListener(SelectToAttackTarget);
-    }
-
     public void SelectToAttackTarget()
     {
         Transform parentTransform = transform.parent;
         GameObject parentObject = parentTransform.gameObject;
 
         
+    }
+
+    public override void OnClickWheelButton()
+    {
+Debug.Log("Click Attack Button");
     }
 }

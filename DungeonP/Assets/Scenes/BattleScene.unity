@@ -217,6 +217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d4c3ff750a94c9ea41f03238969b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2cc62482-6eba-4f10-a8b7-a9b55e697456
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &271337981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,19 +269,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112439464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &271337982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +360,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecdcffe1612f47f4b83cc59824d42e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 759993c5-65b1-4c86-9ca1-bcce722f1498
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &331209705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,19 +412,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112439464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &331209706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,6 +957,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6f2f955b3ef47f1bea3dd2066bc76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3e324a73-fadf-4be3-888d-8115f2701ad9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &851166992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,19 +1009,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112439464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &851166993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,7 +1093,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
@@ -1401,6 +1392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ecda96477df474c8a3d736e2fc726b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d9ba8ed2-5aac-46a8-909e-91b82bc3d883
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1112439463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,19 +1444,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112439464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 42ecda96477df474c8a3d736e2fc726b, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &1112439464
 MonoBehaviour:
   m_ObjectHideFlags: 0

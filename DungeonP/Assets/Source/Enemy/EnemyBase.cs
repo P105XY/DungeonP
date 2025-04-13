@@ -2,31 +2,15 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum EEnemyRiskType
-{
-    None,
-    Low,
-    Normal,
-    High
-}
 
-public struct FEnemyStatus
-{
-    public string name;
-    public int health;
-    public int attack;
-    public int defence;
-    public int activepoint;
-}
-
-public class EnemyBase : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour
 {
     public EEnemyRiskType riskType { get; private set; }
     public FEnemyStatus enemyStatus { get; private set; }
     public string enemyIndex { get; private set; }
     public string[] droptable { get; private set; }
 
-    public void Start()
+    public virtual void Start()
     {
         enemyStatus = new FEnemyStatus();
 
@@ -81,13 +65,5 @@ public class EnemyBase : MonoBehaviour
     public FEnemyStatus GetEnemyStatus()
     {
         return enemyStatus;
-    }
-
-    private void Dead()
-    {
-        foreach (string itemIndex in droptable)
-        {
-            
-        }
     }
 }

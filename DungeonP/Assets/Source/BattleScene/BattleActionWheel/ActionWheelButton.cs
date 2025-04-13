@@ -7,25 +7,10 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 //ActionWheel에서 action 버튼이 입력될 경우 사용될 기능을 구현한 클래스.
-public class ActionWheelButton : ActionWheelButtonBase, IWheelButtonHandler
+public class ActionWheelButton : ActionWheelButtonBase
 {
-    protected override void OnEnable()
+    public override void OnClickWheelButton()
     {
-    }
-
-    protected override void OnDisable()
-    {
-    }
-
-    public void OnWheelButtonClicked(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnWheelButtonHovered(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnCancelButtonClicked(InputAction.CallbackContext context)
-    {
+        Debug.Log("Click action Button");
     }
 }

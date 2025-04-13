@@ -9,7 +9,7 @@ class CoinSlot : MonoBehaviour, ISlotSystem
     void Start()
     {
         GameObject CharacterObject = GameObject.FindGameObjectWithTag(ObjectTagString.CharacterObjectTagString);
-        EquipedItem characterEquipItem = CharacterObject.GetComponent<CharacterBase>().GetCharacterEquipedItem();
+        EquipedItem characterEquipItem = CharacterObject.GetComponent<BattleCharacterBase>().GetCharacterEquipedItem();
 
         if (CharacterObject is null || characterEquipItem is null)
         {

@@ -3,6 +3,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public enum ETurnState
 {
@@ -25,6 +26,7 @@ public class BattleController : MonoBehaviour
 
     public bool bIsPlayerTurnEnd { get; private set; }
     public bool bIsEnemyTurnEnd { get; private set; }
+    public EventSystem currentEventSystem;
 
     public delegate void TurnEndHandler();
     public event TurnEndHandler turnEndHandler;
@@ -40,6 +42,7 @@ public class BattleController : MonoBehaviour
         maxturnIndex = -1;
 
         SetActionOrder();
+        currentEventSystem = EventSystem.current;
     }
 
     void OnEnable()
@@ -63,7 +66,7 @@ public class BattleController : MonoBehaviour
                 continue;
             }
 
-            FCharacterStatus chst = ch.GetComponent<CharacterBase>().GetCharacterStat();
+            FCharacterStatus chst = ch.GetComponent<BattleCharacterBase>().GetCharacterStat();
 
             unsortedActionOrder.Add(ch, chst.activePoint);
         }
@@ -113,7 +116,7 @@ public class BattleController : MonoBehaviour
         else if (currentTurnObjectType == typeof(CharacterBase))
         {
             GameObject currentGameObject = ActionOrder.ElementAt(turnIndex).Key;
-            CharacterBase currentCharacterBase = currentGameObject.GetComponent<CharacterBase>();
+            BattleCharacterBase currentCharacterBase = currentGameObject.GetComponent<BattleCharacterBase>();
 
             currentCharacterBase.StartTurnAction(this);
         }

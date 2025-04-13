@@ -7,15 +7,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-interface IWheelButtonHandler
-{
-    void OnWheelButtonClicked(InputAction.CallbackContext context);
-    void OnWheelButtonHovered(InputAction.CallbackContext context);
-    void OnCancelButtonClicked(InputAction.CallbackContext context);
-}
-
 //action wheel에서 사용할 버튼 위젯의 기본 기능 구현.
-public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public abstract class ActionWheelButtonBase : MonoBehaviour
 {
     private BattleController battleController;
     private RectTransform rectTransform;
@@ -24,6 +17,9 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
     private Coroutine floatingCoroutine;
     protected UnityEngine.UI.Button ActionButton;
     protected Navigation navigationMoveEvent;
+
+    public MovementAction movementAction;
+    public InputAction InteractAction;
 
     private void Start()
     {
@@ -66,36 +62,33 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
 
     protected virtual void OnEnable()
     {
+        movementAction = new MovementAction();
+        movementAction.Enable();
+
+        InteractAction = movementAction.Movement.Interact;
+        InteractAction.Enable();
+        InteractAction.started += ClickInteractButton;
+
+        if (ActionButton == null)
+        {
+            ActionButton = GetComponent<UnityEngine.UI.Button>();
+        }
+
+        ActionButton.onClick.AddListener(OnClickWheelButton);
     }
 
     protected virtual void OnDisable()
     {
+        movementAction.Disable();
+        InteractAction.started -= ClickInteractButton;
+        InteractAction.Disable();
+
         if (ActionButton == null)
         {
-            return;
+            ActionButton = GetComponent<UnityEngine.UI.Button>();
         }
 
         ActionButton.onClick.RemoveAllListeners();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (eventData == null)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        SetIsHover(true);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (eventData == null)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        SetIsHover(false);
     }
 
     public void SetIsHover(bool bInIssHover)
@@ -103,6 +96,22 @@ public abstract class ActionWheelButtonBase : MonoBehaviour, IPointerEnterHandle
         bIsCursurHover = bInIssHover;
     }
 
+    public void ClickInteractButton(InputAction.CallbackContext context)
+    {
+        if (context.action == null)
+        {
+            return;
+        }
+
+        if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+        {
+            OnClickWheelButton();
+        }
+    }
+
+    public abstract void OnClickWheelButton();
+
+    //방향키를 사용해서 selected가 되면, 해당 버튼이 둥둥 떠다니는것 같은 액션을 취함.
     private IEnumerator IconFloating()
     {
         if (floatingCoroutine != null)
