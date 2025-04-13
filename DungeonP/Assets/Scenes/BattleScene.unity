@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleCharacters: []
   battleEnemys: []
+  currentEventSystem: {fileID: 0}
 --- !u!4 &153920568
 Transform:
   m_ObjectHideFlags: 0
@@ -1163,7 +1164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -383.53, y: 206}
+  m_AnchoredPosition: {x: -356, y: 206}
   m_SizeDelta: {x: 90.93, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022924980

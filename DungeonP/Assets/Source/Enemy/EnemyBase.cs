@@ -19,7 +19,6 @@ public abstract class EnemyBase : MonoBehaviour
         switch (riskType)
         {
             case EEnemyRiskType.None:
-
                 break;
             case EEnemyRiskType.Low:
                 dbpath = ObjectValueTable.LowriskEnemyDBLocation;
@@ -61,7 +60,7 @@ public abstract class EnemyBase : MonoBehaviour
             enemyStatus = ed;
         }
     }
-
+    
     public FEnemyStatus GetEnemyStatus()
     {
         return enemyStatus;

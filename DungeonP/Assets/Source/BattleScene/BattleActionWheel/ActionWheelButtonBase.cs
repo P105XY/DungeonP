@@ -60,6 +60,7 @@ public abstract class ActionWheelButtonBase : MonoBehaviour
         }
     }
 
+    //객체의 시작 및 종료 시 현재 inputaction관련 init을 진행.
     protected virtual void OnEnable()
     {
         movementAction = new MovementAction();
